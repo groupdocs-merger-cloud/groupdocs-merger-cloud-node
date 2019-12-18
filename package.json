@@ -1,0 +1,49 @@
+{
+  "name": "groupdocs-merger-cloud",
+  "version": "19.10.0",
+  "description": "GroupDocs.Merger Cloud SDK for Node.js",
+  "homepage": "https://products.groupdocs.cloud/merger",
+  "author": {
+    "name": "GroupDocs"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=4.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/groupdocs-merger-cloud/groupdocs-merger-cloud-node"
+  },
+  "keywords": [
+    "GroupDocs",
+    "Cloud",
+    "Merger"
+  ],
+  "readmeFilename": "README.md",
+  "main": "lib/merger_api.js",
+  "types": "lib/merger_api.d.ts",
+  "scripts": {
+    "clean": "rimraf ./lib && rimraf ./node_modules",
+    "lint": "npm install --no-save && tslint src/{,**/}*.ts test/{,**/}*.ts -t verbose --project ./tsconfig.json",
+    "test": "npm install --no-save && mocha -r ts-node/register test/**/*.ts --timeout 60000 --reporter spec",
+    "build:dev": "rimraf ./lib && npm install --no-save && tsc --build ./tsconfig-dev.json",
+    "build:lib": "rimraf ./lib && npm install --no-save && tsc --build ./tsconfig.json",
+    "build:package": "npm pack"
+  },
+  "dependencies": {
+    "request": "^2.88.0",
+    "request-debug": "^0.2.0",
+    "@types/request": "*"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.0.8",
+    "asposestoragecloud": "^1.0.5",
+    "mocha": "^6.1.4",
+    "chai": "^4.2.0",
+    "ts-node": "^8.2.0",
+    "tslint": "^5.17.0",
+    "typescript": "^3.5.2"
+  }
+}
