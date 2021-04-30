@@ -31,17 +31,17 @@
     "build:package": "npm pack"
   },
   "dependencies": {
+    "@types/request": "*",
     "request": "^2.88.0",
-    "request-debug": "^0.2.0",
-    "@types/request": "*"
+    "request-debug": "^0.2.0"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.0.8",
     "asposestoragecloud": "^1.0.5",
-    "mocha": "^6.1.4",
     "chai": "^4.2.0",
+    "mocha": "^6.1.4",
     "ts-node": "^8.2.0",
     "tslint": "^5.17.0",
     "typescript": "^3.5.2"
