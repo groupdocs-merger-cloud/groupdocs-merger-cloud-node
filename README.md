@@ -1,14 +1,16 @@
 # GroupDocs.Merger Cloud Node.js SDK
+
 Node.js module for communicating with the GroupDocs.Merger Cloud API
 
 GroupDocs.Merger Cloud allows you to merge documents and manipulate document structure across wide range of supported document types - PDF, DOCX/DOC, PPTX/PPT, XLSX/XLS, VSDX/VSD, ODT, ODS, ODP, HTML, EPUB and many others. Merge several documents into one, split single document to multiple documents, reorder or replace document pages, change page orientation, manage document password and perform other manipulations with GroupDocs.Merger Cloud API.
+
 ## Installation
 
 A package `groupdocs-merger-cloud` is available at [npmjs.com](https://www.npmjs.com/package/groupdocs-merger-cloud). You can install it with:
 
 ```shell
 npm install groupdocs-merger-cloud
-```    
+```
 
 ## Getting Started
 
@@ -64,16 +66,18 @@ infoApi.getSupportedFileFormats()
     });
 ```
 
-
 ## Licensing
+
 GroupDocs.Merger Cloud Node.js SDK licensed under [MIT License](LICENSE).
 
 ## Resources
+
 + [**Website**](https://www.groupdocs.cloud)
 + [**Product Home**](https://products.groupdocs.cloud/merger)
-+ [**Documentation**](https://docs.groupdocs.cloud/display/mergercloud/Home)
++ [**Documentation**](https://docs.groupdocs.cloud/merger/)
 + [**Free Support Forum**](https://forum.groupdocs.cloud/c/merger)
 + [**Blog**](https://blog.groupdocs.cloud/category/merger)
 
 ## Contact Us
+
 Your feedback is very important to us. Please feel free to contact us using our [Support Forums](https://forum.groupdocs.cloud/c/merger).

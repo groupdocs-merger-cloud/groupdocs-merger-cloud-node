@@ -1,7 +1,7 @@
 /*
 * The MIT License (MIT)
 *
-* Copyright (c) 2003-2019 Aspose Pty Ltd
+* Copyright (c) 2003-2021 Aspose Pty Ltd
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
@@ -45,7 +45,7 @@ describe("test_info_api", () => {
         it("TestGetInfoReturnsFileNotFound", () => {  
             const request = new GetInfoRequest(TestFile.NotExist.ToFileInfo());
             return TestContext.getInfoApi().getInfo(request).catch((error) => {
-                expect(error.message.message).equal("Can\'t find file located at \'some-folder\\NotExist.docx\'.");
+                expect(error.message).equal("Can\'t find file located at \'some-folder\\NotExist.docx\'.");
             });
         });        
 

@@ -1,7 +1,7 @@
 /*
 * The MIT License (MIT)
 *
-* Copyright (c) 2003-2019 Aspose Pty Ltd
+* Copyright (c) 2003-2021 Aspose Pty Ltd
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
@@ -1006,6 +1006,39 @@ export class FileVersion extends StorageFile {
 }
 
 /**
+ * Import API options
+ */
+export class ImportOptions extends Options {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "attachments",
+            baseName: "attachments",
+            type: "Array<string>",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(ImportOptions.attributeTypeMap);
+    }
+
+    /**
+     * List of files paths to import as attachments
+     */
+    public attachments: Array<string>;
+    
+    public constructor(init?: Partial<ImportOptions>) {
+        super(init);
+        Object.assign(this, init);
+    }        
+}
+
+/**
  * Move page options
  */
 export class MoveOptions extends Options {
@@ -1476,6 +1509,7 @@ const typeMap = {
             StorageExist,
             StorageFile,
             FileVersion,
+            ImportOptions,
             MoveOptions,
             PageOptions,
             SwapOptions,
@@ -1489,6 +1523,20 @@ const typeMap = {
 };
 
 export {enumsMap, typeMap};
+
+/**
+ * Request model for Import operation.
+ */
+export class ImportRequest {
+    /**
+     * Import options
+     */
+    public options: ImportOptions;
+    
+    public constructor(options: ImportOptions) {        
+        this.options = options;
+    }
+}
 
 /**
  * Request model for Join operation.

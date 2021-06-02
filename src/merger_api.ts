@@ -1,7 +1,7 @@
 /*
 * The MIT License (MIT)
 *
-* Copyright (c) 2003-2019 Aspose Pty Ltd
+* Copyright (c) 2003-2021 Aspose Pty Ltd
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
@@ -66,6 +66,36 @@ export class DocumentApi {
      */
     private constructor(config: Configuration) {
         this.configuration = config;
+    }
+
+    /**
+     * Import attachments into pdf document
+     * @param requestObj contains request parameters
+     */
+    public async _import(requestObj: model.ImportRequest): Promise<model.DocumentResult> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling _import.');
+        }
+
+        const localVarPath = this.configuration.getServerUrl() + "/merger/import";
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.options' is not null or undefined
+        if (requestObj.options === null || requestObj.options === undefined) {
+            throw new Error('Required parameter "requestObj.options" was null or undefined when calling _import.');
+        }
+        
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body: Serializer.serialize(requestObj.options, requestObj.options.constructor.name === "Object" ? "ImportOptions" : requestObj.options.constructor.name),
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  Serializer.deserialize(response.body, "DocumentResult");
+        return Promise.resolve(result);
     }
 
     /**

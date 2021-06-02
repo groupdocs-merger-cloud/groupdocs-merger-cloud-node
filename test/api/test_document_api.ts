@@ -1,7 +1,7 @@
 /*
 * The MIT License (MIT)
 *
-* Copyright (c) 2003-2019 Aspose Pty Ltd
+* Copyright (c) 2003-2021 Aspose Pty Ltd
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
@@ -111,6 +111,33 @@ describe("test_document_api", () => {
             let result = await TestContext.getDocumentApi().join(new Model.JoinRequest(options));
 
             expect(result.path).equal(options.outputPath);
-        });        
+        });  
+        
+        it("TestJoinCrossFormat", async () => {  
+
+            let item1 = new Model.JoinItem();
+            item1.fileInfo = TestFile.OnePageProtectedPdf.ToFileInfo();
+            let item2 = new Model.JoinItem();
+            item2.fileInfo = TestFile.FourPagesDocx.ToFileInfo();            
+            let options = new Model.JoinOptions();
+            options.joinItems = [item1, item2];
+            options.outputPath = TestContext.getOutputPath() + "joined.pdf";
+
+            let result = await TestContext.getDocumentApi().join(new Model.JoinRequest(options));
+
+            expect(result.path).equal(options.outputPath);
+        });  
+        
+        it("TestImport", async () => {  
+
+            let options = new Model.ImportOptions();
+            options.fileInfo = TestFile.OnePageProtectedPdf.ToFileInfo();
+            options.attachments = [TestFile.Txt.GetPath()];
+            options.outputPath = TestContext.getOutputPath() + "with-attachment.pdf";
+
+            let result = await TestContext.getDocumentApi()._import(new Model.ImportRequest(options));
+
+            expect(result.path).equal(options.outputPath);
+        });          
     });    
 });
