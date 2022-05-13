@@ -1,7 +1,7 @@
 /*
 * The MIT License (MIT)
 *
-* Copyright (c) 2003-2021 Aspose Pty Ltd
+* Copyright (c) 2003-2022 Aspose Pty Ltd
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
@@ -528,6 +528,11 @@ export class JoinItem {
             name: "rangeMode",
             baseName: "rangeMode",
             type: "JoinItem.RangeModeEnum",
+        },        
+        {
+            name: "wordJoinMode",
+            baseName: "wordJoinMode",
+            type: "JoinItem.WordJoinModeEnum",
         }    ];
 
     /**
@@ -562,6 +567,11 @@ export class JoinItem {
      */
     public rangeMode: JoinItem.RangeModeEnum;
     
+    /**
+     * Allows to join word documents without empty space between documents
+     */
+    public wordJoinMode: JoinItem.WordJoinModeEnum;
+    
     public constructor(init?: Partial<JoinItem>) {
         
         Object.assign(this, init);
@@ -575,6 +585,10 @@ export namespace JoinItem {
         AllPages = 'AllPages' as any,
         OddPages = 'OddPages' as any,
         EvenPages = 'EvenPages' as any,
+    }
+    export enum WordJoinModeEnum {
+        Default = 'Default' as any,
+        Continuous = 'Continuous' as any,
     }
 }
 // tslint:enable:quotemark
@@ -1523,6 +1537,7 @@ export namespace SplitOptions {
 // tslint:enable:quotemark
 const enumsMap = {
     "JoinItem.RangeModeEnum": JoinItem.RangeModeEnum,
+    "JoinItem.WordJoinModeEnum": JoinItem.WordJoinModeEnum,
     "PageOptions.RangeModeEnum": PageOptions.RangeModeEnum,
     "OrientationOptions.ModeEnum": OrientationOptions.ModeEnum,
     "PreviewOptions.FormatEnum": PreviewOptions.FormatEnum,
