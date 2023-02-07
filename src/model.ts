@@ -1,7 +1,7 @@
 /*
 * The MIT License (MIT)
 *
-* Copyright (c) 2003-2022 Aspose Pty Ltd
+* Copyright (c) 2003-2023 Aspose Pty Ltd
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
@@ -496,7 +496,7 @@ export class InfoResult {
 }
 
 /**
- * Describes document for join operation
+ * Describes document for join operation.
  */
 export class JoinItem {
 
@@ -533,6 +533,11 @@ export class JoinItem {
             name: "wordJoinMode",
             baseName: "wordJoinMode",
             type: "JoinItem.WordJoinModeEnum",
+        },        
+        {
+            name: "imageJoinMode",
+            baseName: "imageJoinMode",
+            type: "JoinItem.ImageJoinModeEnum",
         }    ];
 
     /**
@@ -543,7 +548,7 @@ export class JoinItem {
     }
 
     /**
-     * File info
+     * File info.
      */
     public fileInfo: FileInfo;
     
@@ -568,9 +573,14 @@ export class JoinItem {
     public rangeMode: JoinItem.RangeModeEnum;
     
     /**
-     * Allows to join word documents without empty space between documents
+     * Allows to join word documents without empty space between documents.
      */
     public wordJoinMode: JoinItem.WordJoinModeEnum;
+    
+    /**
+     * Possible modes for the image joining.
+     */
+    public imageJoinMode: JoinItem.ImageJoinModeEnum;
     
     public constructor(init?: Partial<JoinItem>) {
         
@@ -589,6 +599,10 @@ export namespace JoinItem {
     export enum WordJoinModeEnum {
         Default = 'Default' as any,
         Continuous = 'Continuous' as any,
+    }
+    export enum ImageJoinModeEnum {
+        Horizontal = 'Horizontal' as any,
+        Vertical = 'Vertical' as any,
     }
 }
 // tslint:enable:quotemark
@@ -1538,6 +1552,7 @@ export namespace SplitOptions {
 const enumsMap = {
     "JoinItem.RangeModeEnum": JoinItem.RangeModeEnum,
     "JoinItem.WordJoinModeEnum": JoinItem.WordJoinModeEnum,
+    "JoinItem.ImageJoinModeEnum": JoinItem.ImageJoinModeEnum,
     "PageOptions.RangeModeEnum": PageOptions.RangeModeEnum,
     "OrientationOptions.ModeEnum": OrientationOptions.ModeEnum,
     "PreviewOptions.FormatEnum": PreviewOptions.FormatEnum,
