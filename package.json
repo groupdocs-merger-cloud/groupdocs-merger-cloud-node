@@ -1,6 +1,6 @@
 {
   "name": "groupdocs-merger-cloud",
-  "version": "23.2.0",
+  "version": "23.5.0",
   "description": "GroupDocs.Merger Cloud SDK for Node.js",
   "homepage": "https://products.groupdocs.cloud/merger",
   "author": {
@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@types/request": "*",
+    "jsonwebtoken": "*",
     "request": "^2.88.0",
     "request-debug": "^0.2.0"
   },
