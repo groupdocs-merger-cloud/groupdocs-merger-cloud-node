@@ -1,7 +1,7 @@
 /*
 * The MIT License (MIT)
 *
-* Copyright (c) 2003-2023 Aspose Pty Ltd
+* Copyright (c) 2003-2024 Aspose Pty Ltd
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
@@ -535,6 +535,11 @@ export class JoinItem {
             type: "JoinItem.WordJoinModeEnum",
         },        
         {
+            name: "wordJoinCompliance",
+            baseName: "wordJoinCompliance",
+            type: "JoinItem.WordJoinComplianceEnum",
+        },        
+        {
             name: "imageJoinMode",
             baseName: "imageJoinMode",
             type: "JoinItem.ImageJoinModeEnum",
@@ -578,6 +583,11 @@ export class JoinItem {
     public wordJoinMode: JoinItem.WordJoinModeEnum;
     
     /**
+     * Compliance mode for the Word Ooxml format
+     */
+    public wordJoinCompliance: JoinItem.WordJoinComplianceEnum;
+    
+    /**
      * Possible modes for the image joining.
      */
     public imageJoinMode: JoinItem.ImageJoinModeEnum;
@@ -599,6 +609,12 @@ export namespace JoinItem {
     export enum WordJoinModeEnum {
         Default = 'Default' as any,
         Continuous = 'Continuous' as any,
+    }
+    export enum WordJoinComplianceEnum {
+        Ecma3762006 = 'Ecma376_2006' as any,
+        Iso295002008Transitional = 'Iso29500_2008_Transitional' as any,
+        Iso295002008Strict = 'Iso29500_2008_Strict' as any,
+        Auto = 'Auto' as any,
     }
     export enum ImageJoinModeEnum {
         Horizontal = 'Horizontal' as any,
@@ -1552,6 +1568,7 @@ export namespace SplitOptions {
 const enumsMap = {
     "JoinItem.RangeModeEnum": JoinItem.RangeModeEnum,
     "JoinItem.WordJoinModeEnum": JoinItem.WordJoinModeEnum,
+    "JoinItem.WordJoinComplianceEnum": JoinItem.WordJoinComplianceEnum,
     "JoinItem.ImageJoinModeEnum": JoinItem.ImageJoinModeEnum,
     "PageOptions.RangeModeEnum": PageOptions.RangeModeEnum,
     "OrientationOptions.ModeEnum": OrientationOptions.ModeEnum,
