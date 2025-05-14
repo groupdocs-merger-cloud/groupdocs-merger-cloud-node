@@ -1,7 +1,7 @@
 /*
 * The MIT License (MIT)
 *
-* Copyright (c) 2003-2024 Aspose Pty Ltd
+* Copyright (c) Aspose Pty Ltd
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
@@ -22,6 +22,95 @@
 * SOFTWARE.
 */
 
+export class ApiError {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "code",
+            baseName: "code",
+            type: "string",
+        },        
+        {
+            name: "message",
+            baseName: "message",
+            type: "string",
+        },        
+        {
+            name: "description",
+            baseName: "description",
+            type: "string",
+        },        
+        {
+            name: "dateTime",
+            baseName: "dateTime",
+            type: "Date",
+        },        
+        {
+            name: "innerError",
+            baseName: "innerError",
+            type: "ApiError",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return ApiError.attributeTypeMap;
+    }
+
+    public code: string;
+    
+    public message: string;
+    
+    public description: string;
+    
+    public dateTime: Date;
+    
+    public innerError: ApiError;
+    
+    public constructor(init?: Partial<ApiError>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
+export class ApiErrorResponse {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "requestId",
+            baseName: "requestId",
+            type: "string",
+        },        
+        {
+            name: "error",
+            baseName: "error",
+            type: "ApiError",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return ApiErrorResponse.attributeTypeMap;
+    }
+
+    public requestId: string;
+    
+    public error: ApiError;
+    
+    public constructor(init?: Partial<ApiErrorResponse>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
 /**
  * Metered license consumption information
  */
@@ -39,6 +128,11 @@ export class ConsumptionResult {
         {
             name: "quantity",
             baseName: "quantity",
+            type: "number",
+        },        
+        {
+            name: "billedApiCalls",
+            baseName: "billedApiCalls",
             type: "number",
         }    ];
 
@@ -58,6 +152,11 @@ export class ConsumptionResult {
      * Amount of MBs processed
      */
     public quantity: number;
+    
+    /**
+     * Billed API calls number
+     */
+    public billedApiCalls: number;
     
     public constructor(init?: Partial<ConsumptionResult>) {
         
@@ -665,6 +764,151 @@ export class JoinOptions {
     }        
 }
 
+/**
+ * Defines item options for documents MixPages method
+ */
+export class MixPagesItem {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "fileIndex",
+            baseName: "fileIndex",
+            type: "number",
+        },        
+        {
+            name: "pages",
+            baseName: "pages",
+            type: "Array<number>",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return MixPagesItem.attributeTypeMap;
+    }
+
+    /**
+     * Index of the file from MixPagesOptions.Files collection.
+     */
+    public fileIndex: number;
+    
+    /**
+     * List of page numbers to use in a MixPages operation. NOTE: page numbering starts from 1.
+     */
+    public pages: Array<number>;
+    
+    public constructor(init?: Partial<MixPagesItem>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
+/**
+ * Defines options for documents JoinPages method
+ */
+export class MixPagesOptions {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "files",
+            baseName: "files",
+            type: "Array<FileInfo>",
+        },        
+        {
+            name: "filesPages",
+            baseName: "filesPages",
+            type: "Array<MixPagesItem>",
+        },        
+        {
+            name: "outputPath",
+            baseName: "outputPath",
+            type: "string",
+        },        
+        {
+            name: "wordJoinMode",
+            baseName: "wordJoinMode",
+            type: "MixPagesOptions.WordJoinModeEnum",
+        },        
+        {
+            name: "wordJoinCompliance",
+            baseName: "wordJoinCompliance",
+            type: "MixPagesOptions.WordJoinComplianceEnum",
+        },        
+        {
+            name: "imageJoinMode",
+            baseName: "imageJoinMode",
+            type: "MixPagesOptions.ImageJoinModeEnum",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return MixPagesOptions.attributeTypeMap;
+    }
+
+    /**
+     * Source documents for JoinPages operation
+     */
+    public files: Array<FileInfo>;
+    
+    /**
+     * Page numbers for document indicies in Files collection.
+     */
+    public filesPages: Array<MixPagesItem>;
+    
+    /**
+     * The output path
+     */
+    public outputPath: string;
+    
+    /**
+     * Allows to join word documents without empty space between documents.
+     */
+    public wordJoinMode: MixPagesOptions.WordJoinModeEnum;
+    
+    /**
+     * Compliance mode for the Word Ooxml format
+     */
+    public wordJoinCompliance: MixPagesOptions.WordJoinComplianceEnum;
+    
+    /**
+     * Possible modes for the image joining.
+     */
+    public imageJoinMode: MixPagesOptions.ImageJoinModeEnum;
+    
+    public constructor(init?: Partial<MixPagesOptions>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
+// tslint:disable:quotemark
+// tslint:disable-next-line:no-namespace
+export namespace MixPagesOptions {
+    export enum WordJoinModeEnum {
+        Default = 'Default' as any,
+        Continuous = 'Continuous' as any,
+    }
+    export enum WordJoinComplianceEnum {
+        Ecma3762006 = 'Ecma376_2006' as any,
+        Iso295002008Transitional = 'Iso29500_2008_Transitional' as any,
+        Iso295002008Strict = 'Iso29500_2008_Strict' as any,
+        Auto = 'Auto' as any,
+    }
+    export enum ImageJoinModeEnum {
+        Horizontal = 'Horizontal' as any,
+        Vertical = 'Vertical' as any,
+    }
+}
+// tslint:enable:quotemark
 /**
  * Error
  */
@@ -1570,6 +1814,9 @@ const enumsMap = {
     "JoinItem.WordJoinModeEnum": JoinItem.WordJoinModeEnum,
     "JoinItem.WordJoinComplianceEnum": JoinItem.WordJoinComplianceEnum,
     "JoinItem.ImageJoinModeEnum": JoinItem.ImageJoinModeEnum,
+    "MixPagesOptions.WordJoinModeEnum": MixPagesOptions.WordJoinModeEnum,
+    "MixPagesOptions.WordJoinComplianceEnum": MixPagesOptions.WordJoinComplianceEnum,
+    "MixPagesOptions.ImageJoinModeEnum": MixPagesOptions.ImageJoinModeEnum,
     "PageOptions.RangeModeEnum": PageOptions.RangeModeEnum,
     "OrientationOptions.ModeEnum": OrientationOptions.ModeEnum,
     "PreviewOptions.FormatEnum": PreviewOptions.FormatEnum,
@@ -1578,6 +1825,8 @@ const enumsMap = {
 };
 
 const typeMap = {
+            ApiError,
+            ApiErrorResponse,
             ConsumptionResult,
             DiscUsage,
             DocumentResult,
@@ -1591,6 +1840,8 @@ const typeMap = {
             InfoResult,
             JoinItem,
             JoinOptions,
+            MixPagesItem,
+            MixPagesOptions,
             ModelError,
             MultiDocumentResult,
             ObjectExist,
@@ -1639,6 +1890,20 @@ export class JoinRequest {
     public options: JoinOptions;
     
     public constructor(options: JoinOptions) {        
+        this.options = options;
+    }
+}
+
+/**
+ * Request model for Mix operation.
+ */
+export class MixRequest {
+    /**
+     * Mix options
+     */
+    public options: MixPagesOptions;
+    
+    public constructor(options: MixPagesOptions) {        
         this.options = options;
     }
 }

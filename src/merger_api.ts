@@ -1,7 +1,7 @@
 /*
 * The MIT License (MIT)
 *
-* Copyright (c) 2003-2024 Aspose Pty Ltd
+* Copyright (c) Aspose Pty Ltd
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
@@ -121,6 +121,36 @@ export class DocumentApi {
             url: localVarPath,
             responseType: "json",
             data: Serializer.serialize(requestObj.options, requestObj.options.constructor.name === "Object" ? "JoinOptions" : requestObj.options.constructor.name),
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  Serializer.deserialize(response.data, "DocumentResult");
+        return Promise.resolve(result);
+    }
+
+    /**
+     * Join selected pages from multiple documents into one document
+     * @param requestObj contains request parameters
+     */
+    public async mix(requestObj: model.MixRequest): Promise<model.DocumentResult> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling mix.');
+        }
+
+        const localVarPath = this.configuration.getServerUrl() + "/merger/mix";
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.options' is not null or undefined
+        if (requestObj.options === null || requestObj.options === undefined) {
+            throw new Error('Required parameter "requestObj.options" was null or undefined when calling mix.');
+        }
+        
+        const requestOptions: axios.AxiosRequestConfig = {
+            method: "POST",
+            params: queryParameters,
+            url: localVarPath,
+            responseType: "json",
+            data: Serializer.serialize(requestObj.options, requestObj.options.constructor.name === "Object" ? "MixPagesOptions" : requestObj.options.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
