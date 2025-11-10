@@ -37,49 +37,49 @@ export class TestFile {
      * DOCX file with one page
      */
     public static OnePageDocx: TestFile =
-        new TestFile("one-page.docx", "WordProcessing\\");
+        new TestFile("one-page.docx", "WordProcessing/");
 
     /**
      * DOCX file with four pages
      */
     public static FourPagesDocx: TestFile =
-        new TestFile("four-pages.docx", "WordProcessing\\");
+        new TestFile("four-pages.docx", "WordProcessing/");
 
     /**
      * Password-protected DOCX file
      */
     public static PasswordProtectedDocx: TestFile =
-        new TestFile("password-protected.docx", "WordProcessing\\", "password");
+        new TestFile("password-protected.docx", "WordProcessing/", "password");
 
     /**
      * XLSX file with four sheets
      */
     public static FourSheetsXlsx: TestFile =
-        new TestFile("four-sheets.xlsx", "Spreadsheet\\");
+        new TestFile("four-sheets.xlsx", "Spreadsheet/");
 
     /**
      * Password-protected XLSX file
      */
     public static PasswordProtectedXlsx: TestFile =
-        new TestFile("four-sheets-protected.xlsx", "Spreadsheet\\", "password");
+        new TestFile("four-sheets-protected.xlsx", "Spreadsheet/", "password");
 
     /**
      * TXT file
      */
     public static Txt: TestFile =
-        new TestFile("document.txt", "Text\\");
+        new TestFile("document.txt", "Text/");
         
     /**
      * PPTX file with notes
      */
     public static TenPagesPdf: TestFile =
-        new TestFile("ten-pages.pdf", "Pdf\\");
+        new TestFile("ten-pages.pdf", "Pdf/");
         
     /**
      * ODP file with hidden slide
      */
     public static OnePageProtectedPdf: TestFile =
-        new TestFile("one-page-password.pdf", "Pdf\\", "password");        
+        new TestFile("one-page-password.pdf", "Pdf/", "password");        
 
     /**
      * File name

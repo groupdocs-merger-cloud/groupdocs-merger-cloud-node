@@ -134,8 +134,8 @@ export function cleanupTempFiles() {
  * Retrieves test file 
  */
 export function getTestFileBuffer(file: TestFile) {
-    const testFilesDir = __dirname + "\\test_files";
-    const testFilePath = testFilesDir + "\\" + file.GetPath();
+    const testFilesDir = __dirname + "/test_files";
+    const testFilePath = testFilesDir + "/" + file.GetPath();
     return fs.readFileSync(testFilePath);
 }
 

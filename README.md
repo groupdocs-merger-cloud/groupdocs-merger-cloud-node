@@ -14,30 +14,32 @@ npm install groupdocs-merger-cloud
 
 ## Getting Started
 
-Please follow the [installation](#installation) procedure and then run the following JavaScript code:
+This example demonstrates merging different Word files seamlessly with a few lines of code:
 
 ```js
-// load the module
-var GroupDocs = require('groupdocs-merger-cloud');
-
-// get your appSid and appKey at https://dashboard.groupdocs.cloud (free registration is required).
-var appSid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX";
-var appKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-
-// construct MergerApi
-var infoApi = GroupDocs.InfoApi.fromKeys(appSid, appKey);
-
-// retrieve supported file-formats
-infoApi.getSupportedFileFormats()
-    .then(function (response) {
-        console.log("Supported file-formats:")
-        response.formats.forEach(function (format) {
-            console.log(format.fileFormat + " (" + format.extension + ")");
-        });
-    })
-    .catch(function (error) {
-        console.log("Error: " + error.message)
-    });
+// For complete examples and data files, please go to https://github.com/groupdocs-merger-cloud/groupdocs-merger-cloud-node-samples
+global.appSid = "XXXX-XXXX-XXXX-XXXX"; // Get AppKey and AppSID from https://dashboard.groupdocs.cloud
+global.appKey = "XXXXXXXXXXXXXXXX"; // Get AppKey and AppSID from https://dashboard.groupdocs.cloud
+  
+global.documentApi = merger_cloud.DocumentApi.fromKeys(appSid, appKey);
+ 
+let item1 = new merger_cloud.JoinItem();
+item1.fileInfo = new merger_cloud.FileInfo();
+item1.fileInfo.filePath = "WordProcessing/sample-10-pages.docx";
+item1.pages = [3, 6, 8];
+ 
+let item2 = new merger_cloud.JoinItem();
+item2.fileInfo = new merger_cloud.FileInfo();
+item2.fileInfo.filePath = "WordProcessing/four-pages.docx";
+item2.startPageNumber = 1
+item2.endPageNumber = 4
+item2.rangeMode = merger_cloud.JoinItem.RangeModeEnum.OddPages;
+         
+let options = new merger_cloud.JoinOptions();
+options.joinItems = [item1, item2];
+options.outputPath = "Output/joined-pages.docx";
+ 
+let result = await documentApi.join(new merger_cloud.JoinRequest(options));
 ```
 
 Or compile and run same written in TypeScript:
